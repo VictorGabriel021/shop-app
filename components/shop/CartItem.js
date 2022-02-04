@@ -12,7 +12,9 @@ const CartItem = (props) => {
     <View style={styles.cartItem}>
       <View style={styles.itemData}>
         <Text style={styles.quantity}>{props.quantity} </Text>
-        <Text style={styles.mainText}>{props.title}</Text>
+        <Text style={{ ...styles.mainText, ...styles.title }} numberOfLines={2}>
+          {props.title}
+        </Text>
       </View>
       <View style={styles.itemData}>
         <Text style={styles.mainText}>{props.amount.toFixed(2)}</Text>
@@ -49,6 +51,10 @@ const styles = StyleSheet.create({
   mainText: {
     fontFamily: "open-sans-bold",
     fontSize: 16,
+  },
+  title: {
+    width: 120,
+    marginLeft: 5,
   },
   deleteButton: {
     margin: 20,
