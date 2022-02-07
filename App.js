@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import ReduxThunk from "redux-thunk";
 import { Provider } from "react-redux";
 
 import productReducer from "./store/reducers/product";
@@ -20,7 +21,7 @@ const rootReducer = combineReducers({
   orders: ordersReducer,
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 const fetchFonts = () => {
   return Font.loadAsync({
