@@ -1,4 +1,4 @@
-import { FlatList, Platform, Button, Alert } from "react-native";
+import { View, Text, FlatList, Platform, Button, Alert } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import Colors from "../../constants/Colors";
@@ -32,6 +32,14 @@ const UserProductScreen = (props) => {
       },
     ]);
   };
+
+  if (userProducts.length === 0) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>No products found, maybe start creating</Text>
+      </View>
+    );
+  }
 
   return (
     <FlatList
